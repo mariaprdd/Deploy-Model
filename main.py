@@ -5,7 +5,7 @@ import numpy as np
 from keras.preprocessing import image
 import os
 
-from model import preprocess_image
+from model import labels_image, preprocess_image
 
 app = Flask(__name__)
 
@@ -20,7 +20,8 @@ def predict():
     img = preprocess_image
     prediction = LabelFrame[np.argmax(prediction)]
     confident = prediction[0][np.argmax(prediction)]
-    print("terdeteksi penyakit {} dengan tingkat kepercayaan {}")
+
+    print("terdeteksi penyakit {} dengan tingkat kepercayaan {}").format(labels_image,confident)
     
 if __name__ == "__main__":
   app.run(debug=True, host='0.0.0.0', port='80')
