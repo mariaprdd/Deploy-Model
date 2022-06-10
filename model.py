@@ -1,3 +1,5 @@
+from cProfile import label
+from tkinter import LabelFrame
 from flask import Flask
 import tensorflow as tf
 import numpy as np
@@ -17,5 +19,5 @@ def labels_image(labels_path):
     labels =  np.array(open(labels_path).read().splitlines())
     prediction = labels[np.argmax(prediction)]
     confident = prediction[0][np.argmax(prediction)]
- 
-print("terdeteksi penyakit {} dengan tingkat kepercayaan {}")
+
+    print("terdeteksi penyakit {} dengan tingkat kepercayaan {}".format(labels_image,confident))
