@@ -4,7 +4,6 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.preprocessing import image
-import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 import io
@@ -14,7 +13,7 @@ import traceback
 model = keras.models.load_model("model10june.h5")
 
 
-with open('herpes zoster.jpg', 'rb') as file:
+with open('test modell/herpes zoster.jpg', 'rb') as file:
     image_bytes = file.read()
     pillow_img = Image.open(io.BytesIO(image_bytes)).convert('L')
 
